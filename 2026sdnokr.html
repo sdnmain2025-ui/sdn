@@ -65,6 +65,47 @@
       max-width: 780px;
     }
 
+    .muted {
+      color: var(--muted);
+    }
+
+    .hero-vision {
+      background: var(--card);
+      border-radius: var(--radius);
+      padding: 22px 24px;
+      border: 1px solid rgba(217, 212, 204, 0.8);
+      box-shadow: 0 16px 30px rgba(28, 32, 35, 0.1);
+    }
+
+    .vision-tag {
+      display: inline-flex;
+      align-items: center;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba(29, 79, 91, 0.1);
+      color: var(--accent);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      margin-bottom: 8px;
+    }
+
+    .hero-vision-text {
+      margin: 0;
+      color: var(--ink);
+      line-height: 1.6;
+      font-size: clamp(18px, 2.4vw, 24px);
+      font-weight: 700;
+      font-family: 'Noto Serif KR', serif;
+    }
+
+    .vision-highlight {
+      color: var(--accent);
+      font-weight: 700;
+      border-bottom: 2px solid rgba(29, 79, 91, 0.2);
+      padding-bottom: 2px;
+    }
+
     .summary {
       background: var(--card);
       border-radius: var(--radius);
@@ -238,9 +279,13 @@
       <div class="eyebrow">2026 Strategy Dashboard</div>
       <h1>2026 전략 목표 대시보드</h1>
       <p class="subtitle">
-        부서별 전략 목표와 1분기 실행 과제를 한 화면에서 확인할 수 있도록 정리했습니다.
+        부서별 전략 목표와 2026년 오브젝티브, 1분기 실행 과제를 한 화면에서 확인할 수 있도록 정리했습니다.
         요약표에서 전사 흐름을 빠르게 훑고, 아래 카드에서 세부 실행을 확인하세요.
       </p>
+      <div class="hero-vision">
+        <div class="vision-tag">새동네 3년 비전(2028)</div>
+        <p class="hero-vision-text"><span class="vision-highlight">상품의 프리미엄</span>, <span class="vision-highlight">직접 유통망 확보</span>, <span class="vision-highlight">스마트한 제조</span>를 바탕으로 2028년 <span class="vision-highlight">'새동네 타운'</span>을 완성한다.</p>
+      </div>
     </header>
 
     <section class="summary">
@@ -253,7 +298,7 @@
             <th>2025년 11월 누적 순이익</th>
             <th>2026 매출 목표</th>
             <th>2026 이익 목표</th>
-            <th>1분기 최우선 과제</th>
+            <th>2026년 목표(오브젝티브)</th>
           </tr>
         </thead>
         <tbody id="summary-body"></tbody>
@@ -273,7 +318,8 @@
           profit2025: 470170811,
           profitNote: "전사 기준",
           revenue: "<strong>200억 원</strong> <span class=\"muted\">(전사 기준)</span>",
-          profit: "<strong>+8억 원</strong> (흑자 전환) <span class=\"muted\">(전사 기준)</span>",
+          profit: "<strong>8억 원</strong> <span class=\"muted\">(전사 기준)</span>",
+          objective: "자동화·온라인 성장으로 전사 흑자 전환 견인",
           q1: "업무 자동화 기반 + 온라인 매출 성장 실행력 확보"
         },
         sections: [
@@ -304,7 +350,7 @@
             html: `
               <ul>
                 <li>매출: <strong>200억 원</strong> (+23%)</li>
-                <li>순이익: <strong>+8억 원</strong> (흑자 전환)</li>
+                <li>순이익: <strong>8억 원</strong></li>
               </ul>
             `
           },
@@ -352,6 +398,7 @@
           }
         ]
       },
+      ,
       {
         name: "원천 건설",
         summary: {
@@ -359,6 +406,7 @@
           profit2025: -696594840,
           revenue: "<strong>120억 원</strong>",
           profit: "<strong>최소 10억 원</strong> (이익률 약 8.3%)",
+          objective: "현장 손익 통제로 회복형 건설사 전환",
           q1: "P&L 게이트 구축: 현장 손실을 48시간 내 차단"
         },
         sections: [
@@ -417,123 +465,7 @@
           }
         ]
       },
-      {
-        name: "새동네 시설관리",
-        summary: {
-          sales2025: null,
-          profit2025: null,
-          revenue: "—",
-          profit: "—",
-          q1: "팀의 주간 운영 리듬(정기점검 → 민원) 패턴 확립"
-        },
-        sections: [
-          {
-            title: "정체성 / 미션",
-            html: `
-              <ul>
-                <li><span class="highlight">주요 사업:</span> 새동네 타운 시설점검 및 유지관리, 고장·수리 대응, 방역·환경 관리, 주민 응대</li>
-                <li><span class="highlight">미션:</span> “우리가 지키면, 새동네는 안심한다.”</li>
-                <li><span class="highlight">3년 비전:</span> 새동네 타운의 안전·환경 표준을 만드는 팀</li>
-                <li>표준 운영체계 구축으로 업무 효율 <strong>2배</strong> 달성</li>
-              </ul>
-            `
-          },
-          {
-            title: "전략적 검증 포인트",
-            html: `
-              <ul>
-                <li>2025년의 핵심 문제였던 정기점검 연속성 붕괴, 기록 체계 부재, 민원 우선순위 혼란을 해결함</li>
-                <li>전사 비전(프리미엄·스마트 운영·효율화)에 기여하는 체계 기반을 구축함</li>
-              </ul>
-            `
-          },
-          {
-            title: "2026 OKR",
-            html: `
-              <p><span class="highlight">목표(O):</span> “새동네 시설관리의 표준 운영체계를 완성해 안정적으로 굴러가는 팀이 된다.”</p>
-              <ul>
-                <li>정기점검이 민원보다 먼저 처리된 비율 <strong>80%</strong> 달성</li>
-                <li>정기점검 미완료 항목을 <strong>20%</strong> 이하로 유지</li>
-                <li>민원 재발률 <strong>30%</strong> 감소 (동일 장소·동일 유형 민원이 60일 이내 재발 시 ‘재발’로 기록)</li>
-              </ul>
-            `
-          },
-          {
-            title: "1분기 최우선 과제 / 핵심 행동",
-            html: `
-              <p><span class="highlight">과제명:</span> “팀의 주간 운영 리듬(정기점검 → 민원) 패턴 확립”</p>
-              <ul>
-                <li>매주 월요일 오전은 팀 전체 정기점검 시간으로 고정한다.</li>
-                <li>주간 일정표를 한 곳에서 공유하고 팀 전체가 매일 체크한다.</li>
-                <li>매주 금요일 오후 15분 ‘리듬 점검 미니 미팅’을 진행한다.</li>
-              </ul>
-              <p>2026년의 새동네 시설관리팀은 ‘흐트러지지 않는 팀’으로 성장합니다. 주간 리듬이 자리 잡으면 정기점검이 살아나고, 민원은 줄고, 품질은 오르고, 2028년 새동네 타운의 완성도는 한 단계 더 높아질 것입니다.</p>
-            `
-          }
-        ]
-      },
-      {
-        name: "상월제빵소",
-        summary: {
-          sales2025: 279242410,
-          profit2025: 80985765,
-          revenue: "<strong>5억 4천만 원</strong>",
-          profit: "<strong>8,000만 원</strong> (이익률 약 15%)",
-          q1: "온라인 시그니처 제품 1종 완성"
-        },
-        sections: [
-          {
-            title: "정체성 / 미션",
-            html: `
-              <ul>
-                <li><span class="highlight">주요 사업:</span> 상월 지역 농산물(깻잎·아로니아 등)을 활용한 건강한 빵과 브런치 제공</li>
-                <li><span class="highlight">미션:</span> 몸과 마음을 생각한 상월제빵소의 건강한 빵을 전 세계로 확산</li>
-                <li><span class="highlight">3년 비전:</span> 스마트 생산 + 온라인 확대로 월매출 <strong>1억</strong>을 만드는 글로벌 건강빵 브랜드의 시작점</li>
-              </ul>
-            `
-          },
-          {
-            title: "전략적 검증 포인트",
-            html: `
-              <ul>
-                <li>2025년의 어려움인 ‘온라인 히트상품 부재’를 해결함</li>
-                <li>전사 비전(프리미엄·직접 판매·흑자 구조)에 기여함</li>
-              </ul>
-            `
-          },
-          {
-            title: "2026 재무 목표",
-            html: `
-              <ul>
-                <li>매출 목표: <strong>5억 4천만 원</strong> (전년 대비 +77% 성장)</li>
-                <li>순이익 목표: <strong>8,000만 원</strong> (이익률 약 15%)</li>
-              </ul>
-            `
-          },
-          {
-            title: "2026 OKR",
-            html: `
-              <p><span class="highlight">목표(O):</span> “온라인 시그니처 제품으로 매출·브랜드 모두 성장하는 2026년 만들기”</p>
-              <ul>
-                <li>온라인 매출 비중 <strong>15%</strong> 달성 (월별 매출 중 온라인 비중 기록)</li>
-                <li>온라인 재구매율 <strong>20%</strong> 달성 (스마트스토어·카톡·직접배송 재구매 고객 비율 월별 기록)</li>
-                <li>시그니처 제품 월 <strong>300건</strong> 판매 안정화 (온라인·오프라인 포함 월 판매건수 기록)</li>
-              </ul>
-            `
-          },
-          {
-            title: "1분기 최우선 과제 / 핵심 행동",
-            html: `
-              <p><span class="highlight">과제명:</span> “온라인 시그니처 제품 1종 완성”</p>
-              <ul>
-                <li>1월 말까지 레시피·보존·배송 기본 테스트 <strong>100%</strong> 완료</li>
-                <li>2월 패키징 디자인·촬영 <strong>100%</strong> 완료</li>
-                <li>3월 상세페이지 제작 + 소프트 런칭(1차 판매) 완료</li>
-              </ul>
-            `
-          }
-        ]
-      },
+      ,
       {
         name: "새로운 김치",
         summary: {
@@ -541,6 +473,7 @@
           profit2025: 317200422,
           revenue: "<strong>35억 원</strong>",
           profit: "<strong>6억 원</strong> (연간 순이익률 17%)",
+          objective: "프리미엄·직거래 중심 흑자 공장 완성",
           q1: "프리미엄 김치 스마트 공장 구축"
         },
         sections: [
@@ -598,198 +531,55 @@
           }
         ]
       },
+      ,
       {
-        name: "남산리 목장",
+        name: "신동회관",
         summary: {
-          sales2025: 3500000,
-          profit2025: -24720115,
-          revenue: "<strong>2억 원</strong>",
-          profit: "—",
-          q1: "녹용 신뢰 체험 동선 완성"
+          sales2025: 1322546300,
+          profit2025: 210148197,
+          revenue: "미제출",
+          profit: "미제출",
+          objective: "자료 미제출",
+          q1: "자료 미제출"
         },
         sections: [
           {
-            title: "정체성 / 미션",
+            title: "제출 상태",
             html: `
-              <ul>
-                <li><span class="highlight">주요 사업:</span> 사슴 사육 및 녹용 판매</li>
-                <li><span class="highlight">미션:</span> 사육과 유통을 결합해 신뢰 가능한 프리미엄 녹용을 고객에게 직접 전달한다</li>
-                <li><span class="highlight">3년 비전:</span> 녹용 판매를 독립적인 수익 사업으로 정착시키고, 확장 가능한 축산·유통 모델로 성장</li>
-              </ul>
-            `
-          },
-          {
-            title: "전략적 검증 포인트",
-            html: `
-              <ul>
-                <li>2025년의 성과인 ‘사육 가능성 검증’을 넘어 실제 수익 구조를 만든다</li>
-                <li>전사 방향인 ‘프리미엄·직접 판매·흑자’에 부합하는 신규 사업 축을 검증한다</li>
-              </ul>
-            `
-          },
-          {
-            title: "2026 재무 목표",
-            html: `
-              <ul>
-                <li>매출 목표: <strong>2억 원</strong> (녹용 판매 시작 5월, 8개월 운영 기준)</li>
-                <li>이익 목표: <strong>—</strong> (자료 미기재)</li>
-              </ul>
-            `
-          },
-          {
-            title: "2026 OKR",
-            html: `
-              <p><span class="highlight">목표(O):</span> “유통 및 사육을 포함한 녹용 판매를 독립적인 수익 사업으로 정착시키고, 확장 가능한 사업 모델로 검증한다.”</p>
-              <ul>
-                <li>연간 녹용 판매 매출 <strong>2억 원</strong> (5~12월 월별 매출 집계)</li>
-                <li>재구매 고객 비율 <strong>20%</strong> 이상 (연내 2회 이상 구매 기준)</li>
-              </ul>
-            `
-          },
-          {
-            title: "1분기 최우선 과제 / 핵심 행동",
-            html: `
-              <p><span class="highlight">과제명:</span> “첫 구매와 재구매를 만들어내는 ‘녹용 신뢰 체험 동선’ 완성”</p>
-              <ul>
-                <li>3월 말까지 1시간 이내 견학이 가능한 최소 동선 확정</li>
-                <li>차 한 잔 마시며 녹용·사육·구매 이유를 설명할 수 있는 공간 1곳 완성</li>
-              </ul>
+              <p>자료 미제출</p>
             `
           }
         ]
       },
+      ,
       {
-        name: "사회적협동조합 새동네",
+        name: "신동정육점",
         summary: {
-          sales2025: 332898204,
-          profit2025: 53103458,
-          revenue: "<strong>6억 원</strong>",
-          profit: "<strong>4,800만 원</strong> (이익률 8%)",
-          q1: "2026년 신규 사업 론칭 발사대 구축"
+          sales2025: 2260106521,
+          profit2025: 219549734,
+          revenue: "미제출",
+          profit: "미제출",
+          objective: "자료 미제출",
+          q1: "자료 미제출"
         },
         sections: [
           {
-            title: "정체성 / 미션",
+            title: "제출 상태",
             html: `
-              <ul>
-                <li><span class="highlight">주요 사업:</span> 농산물 유통 (유통창고 운영, 소포장 제품 기획, 무말랭이/건나물 신규 사업 준비)</li>
-                <li><span class="highlight">미션:</span> 사회적 가치 실현 및 농산물 유통 효율화 추구</li>
-                <li><span class="highlight">3년 비전:</span> 신규 성장 동력(무말랭이/건나물)을 기반으로 자립하는 협동조합</li>
-              </ul>
-            `
-          },
-          {
-            title: "전략적 검증 포인트",
-            html: `
-              <ul>
-                <li>2025년의 어려움인 시설 투자 자금 조달 및 인력 부족을 해결함</li>
-                <li>전사 비전인 프리미엄, 직접 판매, 흑자 달성에 기여함</li>
-              </ul>
-            `
-          },
-          {
-            title: "2026 재무 목표",
-            html: `
-              <ul>
-                <li>매출 목표: <strong>6억 원</strong> (전년 추정 대비 약 80% 성장)</li>
-                <li>이익 목표: <strong>4,800만 원</strong> (이익률 8% 표기)</li>
-              </ul>
-            `
-          },
-          {
-            title: "2026 OKR",
-            html: `
-              <p><span class="highlight">목표(O):</span> "신규 사업(무말랭이/건나물)의 시설 투자부터 상업적 판매까지 성공적으로 완료하여, 명실상부한 새동네의 핵심 성장 동력으로 자리매김한다."</p>
-              <ul>
-                <li>연간 총 매출액 달성: <strong>6억 원</strong> (신규 사업 기여 매출 최소 <strong>2.4억 원</strong>)</li>
-                <li>마을기업 지원 자금 확보 및 시설 개선 완료율: <strong>100%</strong> (외부 투자금 <strong>5천만 원</strong> 이상 수령, 핵심 설비 발주 및 설치 완료)</li>
-                <li>전문 인력 추가 채용 완료: <strong>1명</strong> (1분기 누적 매출액 <strong>4천만 원</strong> 초과 시, 4월 말까지 채용 완료)</li>
-              </ul>
-            `
-          },
-          {
-            title: "1분기 최우선 과제 / 핵심 행동",
-            html: `
-              <p><span class="highlight">과제명:</span> “2026년 신규 사업 론칭 발사대 구축”</p>
-              <ul>
-                <li><strong>[3월 1차 마감 목표]</strong> 마을기업 지원금 조달 성공 및 시설 설치 최종 도면 확정</li>
-                <li><strong>[1월 집중 행동]</strong> 무말랭이 <strong>20톤</strong> 원료 확보 및 선별 작업 완료</li>
-                <li><strong>[2월 집중 행동]</strong> 배추우거지 포함 신규/기존 제품군 대상 ‘2026 유통 채널 지도’ 완성 및 신규 거래처 <strong>1곳</strong> 확정</li>
-              </ul>
+              <p>자료 미제출</p>
             `
           }
         ]
       },
-      {
-        name: "다비아커피",
-        summary: {
-          sales2025: 179398990,
-          profit2025: 37921923,
-          revenue: "<strong>1억 5천만 원</strong>",
-          profit: "<strong>영업이익 5천만 원</strong>",
-          q1: "재고·폐기 시스템 재편"
-        },
-        sections: [
-          {
-            title: "정체성 / 미션",
-            html: `
-              <ul>
-                <li><span class="highlight">주요 사업:</span> 명상센터 내에서 정성 어린 음료와 편안한 공간을 제공하며, 명상·휴식·소통을 돕는 카페 운영</li>
-                <li><span class="highlight">미션:</span> 당신의 명상이 더 깊어지도록 마음을 비우는 편안한 맞이</li>
-                <li><span class="highlight">3년 비전:</span> 인력 부담 없이 누구나 미소 짓는 스마트 힐링 카페</li>
-              </ul>
-            `
-          },
-          {
-            title: "전략적 검증 포인트",
-            html: `
-              <ul>
-                <li>2025년의 어려움인 매출은 늘었으나 이익이 급감하고, 맛·서비스·원가 구조가 흔들린 문제를 해결함</li>
-                <li>전사 비전인 프리미엄·직접 판매·흑자 구조 전환에 기여함</li>
-              </ul>
-            `
-          },
-          {
-            title: "2026 재무 목표",
-            html: `
-              <ul>
-                <li>매출 목표: <strong>1억 5천만 원</strong> (전년 대비 -12%, 전략적 축소)</li>
-                <li>영업이익 목표: <strong>5천만 원</strong> (이익률 약 33%)</li>
-                <li>목표 원가율: <strong>38%</strong> (전년 대비 -5%p 개선)</li>
-              </ul>
-            `
-          },
-          {
-            title: "2026 OKR",
-            html: `
-              <p><span class="highlight">목표(O):</span> “흔들리던 맛·서비스·이익 구조를 바로잡고, 다비아커피만의 시그니처와 브랜드력을 키워 안정적·고부가 매출 구조를 만든다.”</p>
-              <ul>
-                <li>시그니처 메뉴 매출 비중: (목표 %)</li>
-                <li>직원 숙련도·매뉴얼 준수율: (목표 %)</li>
-                <li>재고 폐기율 감소: (목표 %)</li>
-                <li>측정 방법: 월별 POS 메뉴 카테고리 리포트, 품질 점검 데이 체크리스트, 월별 입고량 대비 폐기량 기록</li>
-              </ul>
-            `
-          },
-          {
-            title: "1분기 최우선 과제 / 핵심 행동",
-            html: `
-              <p><span class="highlight">과제명:</span> 재고·폐기 시스템 재편</p>
-              <ul>
-                <li><span class="highlight">재고 기준표 재설계:</span> 품목별 최소/적정/최대 보유량, 주간 평균 판매량 기준 연동, 소분 단위·유통기한·폐기 허용 기준 명시</li>
-                <li><span class="highlight">운영 루틴 구축:</span> 일일 마감 시 사용량·잔량·폐기량 기록, 주 1회 기준 초과/미달 품목 점검, 월 1회 폐기율 리포트로 KR3 연동</li>
-              </ul>
-            `
-          }
-        ]
-      },
+      ,
       {
         name: "새로운 농원",
         summary: {
           sales2025: 176359134,
           profit2025: 65800454,
-          revenue: "<strong>2억 3천 ~ 2억 5천만 원</strong> (깨 육묘장)",
+          revenue: "<strong>2.3억 원</strong> (깨 육묘장)",
           profit: "<strong>6,500만 원 이상</strong> (연간 순이익 KR)",
+          objective: "인력 효율화로 안정 매출·이익 구조",
           q1: "사람 대신 구조가 일하는 기본 운영 체계 구축"
         },
         sections: [
@@ -868,22 +658,34 @@
           }
         ]
       },
+      ,
       {
-        name: "수선방",
+        name: "남산리 목장",
         summary: {
-          sales2025: 10585300,
-          profit2025: 7120529,
-          revenue: "<strong>1,000만 원</strong>",
+          sales2025: 3500000,
+          profit2025: -24720115,
+          revenue: "<strong>2억 원</strong>",
           profit: "—",
-          q1: "핵심 장비(스팀다리미) 교체 및 표준화"
+          objective: "녹용 판매 독립 수익화·모델 검증",
+          q1: "녹용 신뢰 체험 동선 완성"
         },
         sections: [
           {
             title: "정체성 / 미션",
             html: `
               <ul>
-                <li><span class="highlight">주요 사업:</span> 방석 주문 제작, 옷 수선, 커튼 수선</li>
-                <li><span class="highlight">전사 비전 기여:</span> 현장 작업 효율을 높이는 스마트 운영 기반 구축, 수선·제작의 직접 판매 안정화로 흑자 구조 유지</li>
+                <li><span class="highlight">주요 사업:</span> 사슴 사육 및 녹용 판매</li>
+                <li><span class="highlight">미션:</span> 사육과 유통을 결합해 신뢰 가능한 프리미엄 녹용을 고객에게 직접 전달한다</li>
+                <li><span class="highlight">3년 비전:</span> 녹용 판매를 독립적인 수익 사업으로 정착시키고, 확장 가능한 축산·유통 모델로 성장</li>
+              </ul>
+            `
+          },
+          {
+            title: "전략적 검증 포인트",
+            html: `
+              <ul>
+                <li>2025년의 성과인 ‘사육 가능성 검증’을 넘어 실제 수익 구조를 만든다</li>
+                <li>전사 방향인 ‘프리미엄·직접 판매·흑자’에 부합하는 신규 사업 축을 검증한다</li>
               </ul>
             `
           },
@@ -891,32 +693,225 @@
             title: "2026 재무 목표",
             html: `
               <ul>
-                <li>매출/이익: 연 매출 <strong>10,000,000원</strong></li>
+                <li>매출 목표: <strong>2억 원</strong> (녹용 판매 시작 5월, 8개월 운영 기준)</li>
+                <li>이익 목표: <strong>—</strong> (자료 미기재)</li>
               </ul>
             `
           },
           {
             title: "2026 OKR",
             html: `
-              <p><span class="highlight">목표(O):</span> “혼자서도 작업 흐름이 끊기지 않고 안정적인 수입이 나는 스마트 수선방 완성”</p>
+              <p><span class="highlight">목표(O):</span> “유통 및 사육을 포함한 녹용 판매를 독립적인 수익 사업으로 정착시키고, 확장 가능한 사업 모델로 검증한다.”</p>
               <ul>
-                <li>연 매출 <strong>10,000,000원</strong> 달성</li>
-                <li>작업 중 장비 고장으로 인한 업무 중단 <strong>0건</strong></li>
+                <li>연간 녹용 판매 매출 <strong>2억 원</strong> (5~12월 월별 매출 집계)</li>
+                <li>재구매 고객 비율 <strong>20%</strong> 이상 (연내 2회 이상 구매 기준)</li>
               </ul>
             `
           },
           {
             title: "1분기 최우선 과제 / 핵심 행동",
             html: `
-              <p><span class="highlight">과제명:</span> “작업 중단 없는 핵심 장비(스팀다리미) 교체 및 표준화”</p>
+              <p><span class="highlight">과제명:</span> “첫 구매와 재구매를 만들어내는 ‘녹용 신뢰 체험 동선’ 완성”</p>
               <ul>
-                <li>수선·방석 제작에 적합한 내구형 스팀다리미 1종을 기준 장비로 선정·교체</li>
-                <li>사용 빈도·관리 방법을 정리한 장비 사용·관리 기준(청소·물 관리 주기) 간단 매뉴얼화</li>
+                <li>3월 말까지 1시간 이내 견학이 가능한 최소 동선 확정</li>
+                <li>차 한 잔 마시며 녹용·사육·구매 이유를 설명할 수 있는 공간 1곳 완성</li>
               </ul>
             `
           }
         ]
       },
+      ,
+      {
+        name: "화산 목장",
+        summary: {
+          sales2025: 379483472,
+          profit2025: 93869417,
+          revenue: "<strong>6억 4천만 원</strong>",
+          profit: "<strong>2억 원</strong> (이익률 약 31%)",
+          objective: "비육은 현금, 번식은 자산 원칙 정착",
+          q1: "설 명절 수요 기준 출하로 상반기 현금 흐름 안정화"
+        },
+        sections: [
+          {
+            title: "정체성 / 미션",
+            html: `
+              <ul>
+                <li><span class="highlight">주요 사업:</span> 한우 사육</li>
+                <li><span class="highlight">미션:</span> 1++(9) 등급과 무항생제 인증을 유지하며 위생적이고 안정적인 사육 환경을 바탕으로 지속 가능한 목장 구조를 만든다.</li>
+                <li><span class="highlight">3년 비전:</span> 번식 기반을 확립하고, 비육·번식이 균형 잡힌 안정적 목장 운영 모델을 완성한다.</li>
+              </ul>
+            `
+          },
+          {
+            title: "전략적 검증 포인트",
+            html: `
+              <ul>
+                <li>2025년의 구조적 원가 위기와 비육 중심 손실 구조를 반복하지 않음</li>
+                <li>전사 방향인 ‘프리미엄 유지·흑자 구조 전환’에 기여</li>
+              </ul>
+            `
+          },
+          {
+            title: "2026 재무 목표",
+            html: `
+              <ul>
+                <li>매출 목표: <strong>6억 4천만 원</strong> (전년 대비 약 +68%)</li>
+                <li>순이익 목표: <strong>2억 원</strong> (흑자 전환, 이익률 약 31%)</li>
+              </ul>
+            `
+          },
+          {
+            title: "2026 OKR",
+            html: `
+              <p><span class="highlight">목표(O):</span> “비육은 현금, 번식은 자산이라는 운영 원칙을 확립하고 모든 사육 의사결정에 일관되게 적용한다.”</p>
+              <ul>
+                <li>비육 출하 통제: 암소 <strong>40두</strong>, 거세 <strong>16두</strong> 이내 (월별 누적 관리, 분기 잔여 가능 두수 점검)</li>
+                <li>번식 성과: 송아지 출생 <strong>60두</strong> (분만 시 개체 기록, 월·분기 누적 관리)</li>
+              </ul>
+            `
+          },
+          {
+            title: "1분기 최우선 과제 / 핵심 행동",
+            html: `
+              <p><span class="highlight">과제명:</span> “설 명절 수요를 기준으로 거세 8두, 암소 16두를 계획대로 출하하여 상반기 현금 흐름을 안정화한다.”</p>
+              <ul>
+                <li>설 명절 이전 출하 대상 개체를 1월 초 확정하고 출하 일정·물량을 고정</li>
+                <li>출하 실적을 월 단위로 점검하여 연간 출하 상한(암소 40·거세 16)을 초과하지 않도록 관리</li>
+              </ul>
+            `
+          }
+        ]
+      },
+      ,
+      {
+        name: "사회적협동조합 새동네",
+        summary: {
+          sales2025: 332898204,
+          profit2025: 53103458,
+          revenue: "<strong>6억 원</strong>",
+          profit: "<strong>4,800만 원</strong> (이익률 8%)",
+          objective: "신규 사업 상업화로 핵심 성장 동력 확보",
+          q1: "2026년 신규 사업 론칭 발사대 구축"
+        },
+        sections: [
+          {
+            title: "정체성 / 미션",
+            html: `
+              <ul>
+                <li><span class="highlight">주요 사업:</span> 농산물 유통 (유통창고 운영, 소포장 제품 기획, 무말랭이/건나물 신규 사업 준비)</li>
+                <li><span class="highlight">미션:</span> 사회적 가치 실현 및 농산물 유통 효율화 추구</li>
+                <li><span class="highlight">3년 비전:</span> 신규 성장 동력(무말랭이/건나물)을 기반으로 자립하는 협동조합</li>
+              </ul>
+            `
+          },
+          {
+            title: "전략적 검증 포인트",
+            html: `
+              <ul>
+                <li>2025년의 어려움인 시설 투자 자금 조달 및 인력 부족을 해결함</li>
+                <li>전사 비전인 프리미엄, 직접 판매, 흑자 달성에 기여함</li>
+              </ul>
+            `
+          },
+          {
+            title: "2026 재무 목표",
+            html: `
+              <ul>
+                <li>매출 목표: <strong>6억 원</strong> (전년 추정 대비 약 80% 성장)</li>
+                <li>이익 목표: <strong>4,800만 원</strong> (이익률 8% 표기)</li>
+              </ul>
+            `
+          },
+          {
+            title: "2026 OKR",
+            html: `
+              <p><span class="highlight">목표(O):</span> "신규 사업(무말랭이/건나물)의 시설 투자부터 상업적 판매까지 성공적으로 완료하여, 명실상부한 새동네의 핵심 성장 동력으로 자리매김한다."</p>
+              <ul>
+                <li>연간 총 매출액 달성: <strong>6억 원</strong> (신규 사업 기여 매출 최소 <strong>2.4억 원</strong>)</li>
+                <li>마을기업 지원 자금 확보 및 시설 개선 완료율: <strong>100%</strong> (외부 투자금 <strong>5천만 원</strong> 이상 수령, 핵심 설비 발주 및 설치 완료)</li>
+                <li>전문 인력 추가 채용 완료: <strong>1명</strong> (1분기 누적 매출액 <strong>4천만 원</strong> 초과 시, 4월 말까지 채용 완료)</li>
+              </ul>
+            `
+          },
+          {
+            title: "1분기 최우선 과제 / 핵심 행동",
+            html: `
+              <p><span class="highlight">과제명:</span> “2026년 신규 사업 론칭 발사대 구축”</p>
+              <ul>
+                <li><strong>[3월 1차 마감 목표]</strong> 마을기업 지원금 조달 성공 및 시설 설치 최종 도면 확정</li>
+                <li><strong>[1월 집중 행동]</strong> 무말랭이 <strong>20톤</strong> 원료 확보 및 선별 작업 완료</li>
+                <li><strong>[2월 집중 행동]</strong> 배추우거지 포함 신규/기존 제품군 대상 ‘2026 유통 채널 지도’ 완성 및 신규 거래처 <strong>1곳</strong> 확정</li>
+              </ul>
+            `
+          }
+        ]
+      },
+      ,
+      {
+        name: "다비아커피",
+        summary: {
+          sales2025: 179398990,
+          profit2025: 37921923,
+          revenue: "<strong>1억 5천만 원</strong>",
+          profit: "<strong>영업이익 5천만 원</strong>",
+          objective: "맛·서비스 재정비로 시그니처 브랜드 구축",
+          q1: "재고·폐기 시스템 재편"
+        },
+        sections: [
+          {
+            title: "정체성 / 미션",
+            html: `
+              <ul>
+                <li><span class="highlight">주요 사업:</span> 명상센터 내에서 정성 어린 음료와 편안한 공간을 제공하며, 명상·휴식·소통을 돕는 카페 운영</li>
+                <li><span class="highlight">미션:</span> 당신의 명상이 더 깊어지도록 마음을 비우는 편안한 맞이</li>
+                <li><span class="highlight">3년 비전:</span> 인력 부담 없이 누구나 미소 짓는 스마트 힐링 카페</li>
+              </ul>
+            `
+          },
+          {
+            title: "전략적 검증 포인트",
+            html: `
+              <ul>
+                <li>2025년의 어려움인 매출은 늘었으나 이익이 급감하고, 맛·서비스·원가 구조가 흔들린 문제를 해결함</li>
+                <li>전사 비전인 프리미엄·직접 판매·흑자 구조 전환에 기여함</li>
+              </ul>
+            `
+          },
+          {
+            title: "2026 재무 목표",
+            html: `
+              <ul>
+                <li>매출 목표: <strong>1억 5천만 원</strong> (전년 대비 -12%, 전략적 축소)</li>
+                <li>영업이익 목표: <strong>5천만 원</strong> (이익률 약 33%)</li>
+                <li>목표 원가율: <strong>38%</strong> (전년 대비 -5%p 개선)</li>
+              </ul>
+            `
+          },
+          {
+            title: "2026 OKR",
+            html: `
+              <p><span class="highlight">목표(O):</span> “흔들리던 맛·서비스·이익 구조를 바로잡고, 다비아커피만의 시그니처와 브랜드력을 키워 안정적·고부가 매출 구조를 만든다.”</p>
+              <ul>
+                <li>시그니처 메뉴 매출 비중: (목표 %)</li>
+                <li>직원 숙련도·매뉴얼 준수율: (목표 %)</li>
+                <li>재고 폐기율 감소: (목표 %)</li>
+                <li>측정 방법: 월별 POS 메뉴 카테고리 리포트, 품질 점검 데이 체크리스트, 월별 입고량 대비 폐기량 기록</li>
+              </ul>
+            `
+          },
+          {
+            title: "1분기 최우선 과제 / 핵심 행동",
+            html: `
+              <p><span class="highlight">과제명:</span> 재고·폐기 시스템 재편</p>
+              <ul>
+                <li><span class="highlight">재고 기준표 재설계:</span> 품목별 최소/적정/최대 보유량, 주간 평균 판매량 기준 연동, 소분 단위·유통기한·폐기 허용 기준 명시</li>
+                <li><span class="highlight">운영 루틴 구축:</span> 일일 마감 시 사용량·잔량·폐기량 기록, 주 1회 기준 초과/미달 품목 점검, 월 1회 폐기율 리포트로 KR3 연동</li>
+              </ul>
+            `
+          }
+        ]
+      },
+      ,
       {
         name: "새로운마트",
         summary: {
@@ -924,6 +919,7 @@
           profit2025: 80142108,
           revenue: "<strong>5억 원</strong>",
           profit: "<strong>순수익 1억 원</strong>",
+          objective: "건강 큐레이션 마트로 신뢰 확보",
           q1: "신규 킬러 아이템 발굴 및 스토리텔링 영업 시스템 구축"
         },
         sections: [
@@ -978,6 +974,7 @@
           }
         ]
       },
+      ,
       {
         name: "하늘미용실",
         summary: {
@@ -985,6 +982,7 @@
           profit2025: 6366409,
           revenue: "<strong>4,000만 원</strong>",
           profit: "—",
+          objective: "시스템 기반 스마트 미용실 완성",
           q1: "시술 메뉴 표준화 & 제품 판매 구조 확립"
         },
         sections: [
@@ -1027,60 +1025,122 @@
           }
         ]
       },
+      ,
       {
-        name: "신동회관",
+        name: "수선방",
         summary: {
-          sales2025: 1322546300,
-          profit2025: 210148197,
-          revenue: "미제출",
-          profit: "미제출",
-          q1: "자료 미제출"
+          sales2025: 10585300,
+          profit2025: 7120529,
+          revenue: "<strong>1,000만 원</strong>",
+          profit: "—",
+          objective: "혼자 운영 가능한 스마트 수선방 완성",
+          q1: "핵심 장비(스팀다리미) 교체 및 표준화"
         },
         sections: [
           {
-            title: "제출 상태",
+            title: "정체성 / 미션",
             html: `
-              <p>자료 미제출</p>
+              <ul>
+                <li><span class="highlight">주요 사업:</span> 방석 주문 제작, 옷 수선, 커튼 수선</li>
+                <li><span class="highlight">전사 비전 기여:</span> 현장 작업 효율을 높이는 스마트 운영 기반 구축, 수선·제작의 직접 판매 안정화로 흑자 구조 유지</li>
+              </ul>
+            `
+          },
+          {
+            title: "2026 재무 목표",
+            html: `
+              <ul>
+                <li>매출/이익: 연 매출 <strong>10,000,000원</strong></li>
+              </ul>
+            `
+          },
+          {
+            title: "2026 OKR",
+            html: `
+              <p><span class="highlight">목표(O):</span> “혼자서도 작업 흐름이 끊기지 않고 안정적인 수입이 나는 스마트 수선방 완성”</p>
+              <ul>
+                <li>연 매출 <strong>10,000,000원</strong> 달성</li>
+                <li>작업 중 장비 고장으로 인한 업무 중단 <strong>0건</strong></li>
+              </ul>
+            `
+          },
+          {
+            title: "1분기 최우선 과제 / 핵심 행동",
+            html: `
+              <p><span class="highlight">과제명:</span> “작업 중단 없는 핵심 장비(스팀다리미) 교체 및 표준화”</p>
+              <ul>
+                <li>수선·방석 제작에 적합한 내구형 스팀다리미 1종을 기준 장비로 선정·교체</li>
+                <li>사용 빈도·관리 방법을 정리한 장비 사용·관리 기준(청소·물 관리 주기) 간단 매뉴얼화</li>
+              </ul>
             `
           }
         ]
       },
+      ,
       {
-        name: "신동정육점",
+        name: "상월제빵소",
         summary: {
-          sales2025: 2260106521,
-          profit2025: 219549734,
-          revenue: "미제출",
-          profit: "미제출",
-          q1: "자료 미제출"
+          sales2025: 279242410,
+          profit2025: 80985765,
+          revenue: "<strong>5억 4천만 원</strong>",
+          profit: "<strong>8,000만 원</strong> (이익률 약 15%)",
+          objective: "온라인 시그니처로 매출·브랜드 성장",
+          q1: "온라인 시그니처 제품 1종 완성"
         },
         sections: [
           {
-            title: "제출 상태",
+            title: "정체성 / 미션",
             html: `
-              <p>자료 미제출</p>
+              <ul>
+                <li><span class="highlight">주요 사업:</span> 상월 지역 농산물(깻잎·아로니아 등)을 활용한 건강한 빵과 브런치 제공</li>
+                <li><span class="highlight">미션:</span> 몸과 마음을 생각한 상월제빵소의 건강한 빵을 전 세계로 확산</li>
+                <li><span class="highlight">3년 비전:</span> 스마트 생산 + 온라인 확대로 월매출 <strong>1억</strong>을 만드는 글로벌 건강빵 브랜드의 시작점</li>
+              </ul>
+            `
+          },
+          {
+            title: "전략적 검증 포인트",
+            html: `
+              <ul>
+                <li>2025년의 어려움인 ‘온라인 히트상품 부재’를 해결함</li>
+                <li>전사 비전(프리미엄·직접 판매·흑자 구조)에 기여함</li>
+              </ul>
+            `
+          },
+          {
+            title: "2026 재무 목표",
+            html: `
+              <ul>
+                <li>매출 목표: <strong>5억 4천만 원</strong> (전년 대비 +77% 성장)</li>
+                <li>순이익 목표: <strong>8,000만 원</strong> (이익률 약 15%)</li>
+              </ul>
+            `
+          },
+          {
+            title: "2026 OKR",
+            html: `
+              <p><span class="highlight">목표(O):</span> “온라인 시그니처 제품으로 매출·브랜드 모두 성장하는 2026년 만들기”</p>
+              <ul>
+                <li>온라인 매출 비중 <strong>15%</strong> 달성 (월별 매출 중 온라인 비중 기록)</li>
+                <li>온라인 재구매율 <strong>20%</strong> 달성 (스마트스토어·카톡·직접배송 재구매 고객 비율 월별 기록)</li>
+                <li>시그니처 제품 월 <strong>300건</strong> 판매 안정화 (온라인·오프라인 포함 월 판매건수 기록)</li>
+              </ul>
+            `
+          },
+          {
+            title: "1분기 최우선 과제 / 핵심 행동",
+            html: `
+              <p><span class="highlight">과제명:</span> “온라인 시그니처 제품 1종 완성”</p>
+              <ul>
+                <li>1월 말까지 레시피·보존·배송 기본 테스트 <strong>100%</strong> 완료</li>
+                <li>2월 패키징 디자인·촬영 <strong>100%</strong> 완료</li>
+                <li>3월 상세페이지 제작 + 소프트 런칭(1차 판매) 완료</li>
+              </ul>
             `
           }
         ]
       },
-      {
-        name: "화산목장",
-        summary: {
-          sales2025: 379483472,
-          profit2025: 93869417,
-          revenue: "미제출",
-          profit: "미제출",
-          q1: "자료 미제출"
-        },
-        sections: [
-          {
-            title: "제출 상태",
-            html: `
-              <p>자료 미제출</p>
-            `
-          }
-        ]
-      },
+      ,
       {
         name: "참정성가득우리상조",
         summary: {
@@ -1088,6 +1148,7 @@
           profit2025: 24202627,
           revenue: "<strong>약 2.6억 원</strong>",
           profit: "<strong>5천만 원</strong>",
+          objective: "장례 80건 달성·흑자 운영 표준화",
           q1: "2026년 80건 달성을 위한 운영 기반 구축 및 신규 사업 준비"
         },
         sections: [
@@ -1151,6 +1212,7 @@
           }
         ]
       },
+      ,
       {
         name: "올바른금융",
         summary: {
@@ -1158,6 +1220,7 @@
           profit2025: 56645478,
           revenue: "미제출",
           profit: "미제출",
+          objective: "자료 미제출",
           q1: "자료 미제출"
         },
         sections: [
@@ -1169,6 +1232,7 @@
           }
         ]
       },
+      ,
       {
         name: "천지다",
         summary: {
@@ -1176,6 +1240,7 @@
           profit2025: -1981247,
           revenue: "미제출",
           profit: "미제출",
+          objective: "자료 미제출",
           q1: "자료 미제출"
         },
         sections: [
@@ -1183,6 +1248,63 @@
             title: "제출 상태",
             html: `
               <p>자료 미제출</p>
+            `
+          }
+        ]
+      },
+      ,
+      {
+        name: "새동네 시설관리",
+        summary: {
+          sales2025: null,
+          profit2025: null,
+          revenue: "—",
+          profit: "—",
+          objective: "표준 운영체계 완성으로 안정 운영",
+          q1: "팀의 주간 운영 리듬(정기점검 → 민원) 패턴 확립"
+        },
+        sections: [
+          {
+            title: "정체성 / 미션",
+            html: `
+              <ul>
+                <li><span class="highlight">주요 사업:</span> 새동네 타운 시설점검 및 유지관리, 고장·수리 대응, 방역·환경 관리, 주민 응대</li>
+                <li><span class="highlight">미션:</span> “우리가 지키면, 새동네는 안심한다.”</li>
+                <li><span class="highlight">3년 비전:</span> 새동네 타운의 안전·환경 표준을 만드는 팀</li>
+                <li>표준 운영체계 구축으로 업무 효율 <strong>2배</strong> 달성</li>
+              </ul>
+            `
+          },
+          {
+            title: "전략적 검증 포인트",
+            html: `
+              <ul>
+                <li>2025년의 핵심 문제였던 정기점검 연속성 붕괴, 기록 체계 부재, 민원 우선순위 혼란을 해결함</li>
+                <li>전사 비전(프리미엄·스마트 운영·효율화)에 기여하는 체계 기반을 구축함</li>
+              </ul>
+            `
+          },
+          {
+            title: "2026 OKR",
+            html: `
+              <p><span class="highlight">목표(O):</span> “새동네 시설관리의 표준 운영체계를 완성해 안정적으로 굴러가는 팀이 된다.”</p>
+              <ul>
+                <li>정기점검이 민원보다 먼저 처리된 비율 <strong>80%</strong> 달성</li>
+                <li>정기점검 미완료 항목을 <strong>20%</strong> 이하로 유지</li>
+                <li>민원 재발률 <strong>30%</strong> 감소 (동일 장소·동일 유형 민원이 60일 이내 재발 시 ‘재발’로 기록)</li>
+              </ul>
+            `
+          },
+          {
+            title: "1분기 최우선 과제 / 핵심 행동",
+            html: `
+              <p><span class="highlight">과제명:</span> “팀의 주간 운영 리듬(정기점검 → 민원) 패턴 확립”</p>
+              <ul>
+                <li>매주 월요일 오전은 팀 전체 정기점검 시간으로 고정한다.</li>
+                <li>주간 일정표를 한 곳에서 공유하고 팀 전체가 매일 체크한다.</li>
+                <li>매주 금요일 오후 15분 ‘리듬 점검 미니 미팅’을 진행한다.</li>
+              </ul>
+              <p>2026년의 새동네 시설관리팀은 ‘흐트러지지 않는 팀’으로 성장합니다. 주간 리듬이 자리 잡으면 정기점검이 살아나고, 민원은 줄고, 품질은 오르고, 2028년 새동네 타운의 완성도는 한 단계 더 높아질 것입니다.</p>
             `
           }
         ]
@@ -1196,24 +1318,19 @@
       const abs = Math.abs(value);
       const sign = value < 0 ? "-" : "";
       if (abs >= 100000000) {
-        let eok = Math.floor(abs / 100000000);
-        let cheonman = Math.round((abs % 100000000) / 10000000);
-        if (cheonman === 10) {
-          eok += 1;
-          cheonman = 0;
-        }
-        return cheonman
-          ? `${sign}${eok.toLocaleString()}억 ${cheonman}천만 원`
-          : `${sign}${eok.toLocaleString()}억 원`;
+        const eok = abs / 100000000;
+        const rounded = Math.round(eok * 10) / 10;
+        const text = rounded.toFixed(1).replace(/\.0$/, "");
+        return `${sign}${text}억 원`;
       }
-      if (abs >= 10000) return `${sign}${Math.round(abs / 10000).toLocaleString()}만 원`;
+      if (abs >= 10000) return `${sign}${Math.round(abs / 10000).toLocaleString()}만원`;
       return `${sign}${abs.toLocaleString()}원`;
     };
 
     const formatProfit = (profit, sales) => {
       if (profit === null || sales === null || sales === 0) return "—";
       const margin = (profit / sales) * 100;
-      return `${formatKrwShort(profit)} (${margin.toFixed(1)}%)`;
+      return `<strong>${formatKrwShort(profit)}</strong> <span class="muted">${margin.toFixed(1)}%</span>`;
     };
 
     const formatSales = (sales) => {
@@ -1221,14 +1338,93 @@
       return formatKrwShort(sales);
     };
 
+    const parseKoreanMoneyToWon = (text) => {
+      if (!text || typeof text !== "string") return null;
+      const cleaned = text.replace(/,/g, "");
+      const sign = cleaned.includes("-") ? -1 : 1;
+      let total = 0;
+      let work = cleaned;
+      const eokMatch = work.match(/(\d+(?:\.\d+)?)\s*억/);
+      if (eokMatch) {
+        total += parseFloat(eokMatch[1]) * 100000000;
+        work = work.replace(/(\d+(?:\.\d+)?)\s*억/, " ");
+      }
+      const cheonmanMatch = work.match(/(\d+(?:\.\d+)?)\s*천만/);
+      if (cheonmanMatch) {
+        total += parseFloat(cheonmanMatch[1]) * 10000000;
+        work = work.replace(/(\d+(?:\.\d+)?)\s*천만/, " ");
+      }
+      const manMatch = work.match(/(\d+(?:\.\d+)?)\s*만/);
+      if (manMatch) {
+        total += parseFloat(manMatch[1]) * 10000;
+        work = work.replace(/(\d+(?:\.\d+)?)\s*만/, " ");
+      }
+      const wonMatch = work.match(/(\d+(?:\.\d+)?)\s*원/);
+      if (wonMatch && total === 0) {
+        total += parseFloat(wonMatch[1]);
+      }
+      if (!eokMatch && !cheonmanMatch && !manMatch && !wonMatch) return null;
+      return total * sign;
+    };
+
+    const simplifyProfitGoal = (value, revenueValue) => {
+      if (!value || typeof value !== "string") return value;
+      if (value === "—" || value === "미제출") return value;
+      const textOnly = value.replace(/<[^>]+>/g, " ");
+      const percentMatch = textOnly.match(/(-?\d+(?:\.\d+)?)\s*%/);
+      const amountWon = parseKoreanMoneyToWon(textOnly);
+      const amountText = amountWon !== null ? formatKrwShort(amountWon) : textOnly.trim();
+      const cleanedAmount = amountText.replace(/\+/g, "").replace(/최소/g, "").trim();
+      let percentText = percentMatch ? `${percentMatch[1]}%` : "";
+      if (!percentText && revenueValue) {
+        const revenueText = revenueValue.replace(/<[^>]+>/g, " ");
+        const revenueWon = parseKoreanMoneyToWon(revenueText);
+        if (amountWon !== null && revenueWon) {
+          const margin = (amountWon / revenueWon) * 100;
+          percentText = `${margin.toFixed(1)}%`;
+        }
+      }
+      return percentText
+        ? `<strong>${cleanedAmount}</strong> <span class="muted">${percentText}</span>`
+        : `<strong>${cleanedAmount}</strong>`;
+    };
+
+    const normalizeRevenueGoal = (value) => {
+      if (!value || typeof value !== "string") return value;
+      if (value === "—" || value === "미제출") return value;
+      const noteSpans = value.match(/<span class="muted">[^<]*<\/span>/g);
+      const textOnly = value.replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim();
+      const noteMatch = !noteSpans ? textOnly.match(/\([^)]*\)\s*$/) : null;
+      const note = noteSpans ? noteSpans.join(" ") : (noteMatch ? `<span class="muted">${noteMatch[0]}</span>` : "");
+      const baseText = noteMatch ? textOnly.replace(/\([^)]*\)\s*$/, "").trim() : textOnly;
+      const hasApprox = baseText.includes("약");
+      const raw = baseText.replace(/약/g, "").trim();
+      let formatted = raw;
+      if (raw.includes("~")) {
+        const parts = raw.split("~").map(part => part.trim());
+        const left = parseKoreanMoneyToWon(parts[0]);
+        const right = parseKoreanMoneyToWon(parts[1]);
+        if (left !== null && right !== null) {
+          formatted = `${formatKrwShort(left)} ~ ${formatKrwShort(right)}`;
+        }
+      } else {
+        const amountWon = parseKoreanMoneyToWon(raw);
+        if (amountWon !== null) {
+          formatted = formatKrwShort(amountWon);
+        }
+      }
+      const prefix = hasApprox ? "약 " : "";
+      return `<strong>${prefix}${formatted}</strong>${note ? ` ${note}` : ""}`;
+    };
+
     const summaryRow = (dept) => `
       <tr>
         <td data-label="부서명"><span class="pill">${dept.name}</span></td>
-        <td data-label="2025년 10월 누적 매출"><strong>${formatSales(dept.summary.sales2025)}</strong>${dept.summary.salesNote ? ` <span class="muted">(${dept.summary.salesNote})</span>` : ""}</td>
-        <td data-label="2025년 10월 누적 순이익"><strong>${formatProfit(dept.summary.profit2025, dept.summary.sales2025)}</strong>${dept.summary.profitNote ? ` <span class="muted">(${dept.summary.profitNote})</span>` : ""}</td>
-        <td data-label="2026 매출 목표">${dept.summary.revenue}</td>
-        <td data-label="2026 이익 목표">${dept.summary.profit}</td>
-        <td data-label="1분기 최우선 과제">${dept.summary.q1}</td>
+        <td data-label="2025년 11월 누적 매출"><strong>${formatSales(dept.summary.sales2025)}</strong>${dept.summary.salesNote ? ` <span class="muted">(${dept.summary.salesNote})</span>` : ""}</td>
+        <td data-label="2025년 11월 누적 순이익">${formatProfit(dept.summary.profit2025, dept.summary.sales2025)}${dept.summary.profitNote ? ` <span class="muted">(${dept.summary.profitNote})</span>` : ""}</td>
+        <td data-label="2026 매출 목표">${normalizeRevenueGoal(dept.summary.revenue)}</td>
+        <td data-label="2026 이익 목표">${simplifyProfitGoal(dept.summary.profit, dept.summary.revenue)}</td>
+        <td data-label="2026년 목표(오브젝티브)">${dept.summary.objective}</td>
       </tr>
     `;
 
